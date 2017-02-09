@@ -6,7 +6,7 @@
 /*   By: ele-cren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 16:54:54 by ele-cren          #+#    #+#             */
-/*   Updated: 2017/02/09 11:08:39 by ele-cren         ###   ########.fr       */
+/*   Updated: 2017/02/09 15:07:58 by ele-cren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int		ft_key(int keycode, void *param)
 	(void)*param;
 	if (keycode == 53)
 		exit(0);
-	if (keycode == 123 || keycode == 124)
-		ft_move_lr(param, keycode);
+	//if (keycode == 123 || keycode == 124)
+	//	ft_move_lr(param, keycode);
 	return (0);
 }
 
-void	ft_move_lr(t_param *param, int keycode)
+/*void	ft_move_lr(t_param *param, int keycode)
 {
 	if (keycode == 123)
 	{
@@ -40,4 +40,4 @@ void	ft_move_lr(t_param *param, int keycode)
 		param->size.mvx -= 100;
 		ft_put(param->list, param->size, param->mlx);
 	}
-}
+}*/

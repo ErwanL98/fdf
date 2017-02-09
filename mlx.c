@@ -6,7 +6,7 @@
 /*   By: ele-cren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 14:54:08 by ele-cren          #+#    #+#             */
-/*   Updated: 2017/02/09 13:25:49 by ele-cren         ###   ########.fr       */
+/*   Updated: 2017/02/09 15:18:39 by ele-cren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,19 @@ void	ft_mlx(t_llist *list, t_size size)
 	ft_check_size(&size, list);
 	ml.mlx = mlx_init();
 	ml.win = mlx_new_window(ml.mlx, size.width, size.height, "FDF");
+	ml.img = mlx_new_image(ml.mlx, size.width, size.height);
+	ml.data = (int *)mlx_get_data_addr(ml.img, &ml.bpp, &ml.sizeline, &ml.endian);
 	ft_getz(list, &size);
-	ft_put(list, size, ml);
+	ft_put(list, size, &ml);
 	param.size = size;
 	param.mlx = ml;
-	param.list =list;
+	param.list = list;
+	mlx_put_image_to_window(ml.mlx, ml.win, ml.img, 0, 15);
 	mlx_key_hook(ml.win, ft_key, &param);
 	mlx_loop(ml.mlx);
 }
 
-void	ft_put(t_llist *list, t_size size, t_mlx ml)
+void	ft_put(t_llist *list, t_size size, t_mlx *ml)
 {
 	t_llist	*tmp;
 	int		i;
@@ -83,7 +86,7 @@ void	ft_put(t_llist *list, t_size size, t_mlx ml)
 	}
 }
 
-void	ft_drawy(t_mlx ml, t_llist *list, t_size size, t_color col)
+void	ft_drawy(t_mlx *ml, t_llist *list, t_size size, t_color col)
 {
 	t_draw	draw;
 	int		i;
@@ -107,7 +110,7 @@ void	ft_drawy(t_mlx ml, t_llist *list, t_size size, t_color col)
 	ft_drawseg(draw, ml, size, col);
 }
 
-void	ft_drawx(t_mlx ml, t_llist *list, t_size size, t_color col)
+void	ft_drawx(t_mlx *ml, t_llist *list, t_size size, t_color col)
 {
 	t_draw	draw;
 

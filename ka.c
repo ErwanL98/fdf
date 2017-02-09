@@ -4,11 +4,9 @@
 
 int		main(void)
 {
-	char	*str;
-	t_rgba	rgba;
+	double	a;
 
-	str = "0xFF000064";
-	rgba = ft_hex_to_rgba(str);
-	printf("r:%f\ng:%f\nb:%f\na:%f\n", rgba.r, rgba.g, rgba.b, rgba.a);
+	a = 0.5;
+	printf("%d\n", (int)a);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ele-cren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 13:06:09 by ele-cren          #+#    #+#             */
-/*   Updated: 2017/02/09 12:45:38 by ele-cren         ###   ########.fr       */
+/*   Updated: 2017/02/09 15:08:57 by ele-cren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ typedef struct		s_size
 	int				zmax;
 	int				zmin;
 	int				deep;
-	int				mvx;
-	int				mvy;
 	int				x;
 }					t_size;
 
@@ -75,26 +73,11 @@ typedef struct		s_mlx
 {
 	void			*mlx;
 	void			*win;
-	void			*img1;
-	void			*img2;
-	void			*img3;
-	void			*img4;
-	int				*data1;
-	int				*data2;
-	int				*data3;
-	int				*data4;
-	int				bpp1;
-	int				sizeline1;
-	int				endian1;
-	int				bpp2;
-	int				sizeline2;
-	int				endian2;
-	int				bpp3;
-	int				sizeline3;
-	int				endian3;
-	int				bpp4;
-	int				sizeline4;
-	int				endian4;
+	void			*img;
+	int				*data;
+	int				bpp;
+	int				sizeline;
+	int				endian;
 }					t_mlx;
 
 typedef struct		s_coor
@@ -146,13 +129,13 @@ void				ft_check_valid(char *av, t_size *size);
 void				ft_error_map(void);
 void				ft_check_size(t_size *size, t_llist *list);
 void				ft_init_size(t_size *size);
-void				ft_put(t_llist *list, t_size size, t_mlx ml);
+void				ft_put(t_llist *list, t_size size, t_mlx *ml);
 int					ft_key(int keycode, void *param);
-void				ft_drawx(t_mlx ml, t_llist *list, t_size size, t_color col);
-void				ft_drawy(t_mlx ml, t_llist *list, t_size size, t_color col);
-void				ft_drawseg(t_draw draw, t_mlx ml, t_size size, t_color col);
-void				ft_low(t_draw draw, t_mlx ml, t_size size, t_color col);
-void				ft_high(t_draw draw, t_mlx ml, t_size size, t_color col);
+void				ft_drawx(t_mlx *ml, t_llist *list, t_size size, t_color col);
+void				ft_drawy(t_mlx *ml, t_llist *list, t_size size, t_color col);
+void				ft_drawseg(t_draw draw, t_mlx *ml, t_size size, t_color col);
+void				ft_low(t_draw draw, t_mlx *ml, t_size size, t_color col);
+void				ft_high(t_draw draw, t_mlx *ml, t_size size, t_color col);
 void				ft_mlx(t_llist *list, t_size size);
 void				ft_getz(t_llist *list, t_size *size);
 void				ft_error_file(void);
@@ -165,9 +148,5 @@ int					ft_check_color(t_llist *list);
 int					ft_choose_color(t_size size, t_draw draw, t_color color);
 void				ft_move_lr(t_param *param, int keycode);
 void				ft_init_mlx(t_mlx *mlx);
-void				ft_create_imgs(t_mlx *ml, t_size size);
-void				ft_fill_img1(t_mlx *ml, t_size size);
-void				ft_fill_img2(t_mlx *ml, t_size size);
-void				ft_init_pos(t_imgpos *imgpos);
 
 #endif
