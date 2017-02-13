@@ -6,7 +6,7 @@
 /*   By: ele-cren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/27 15:30:18 by ele-cren          #+#    #+#             */
-/*   Updated: 2017/02/10 16:36:07 by ele-cren         ###   ########.fr       */
+/*   Updated: 2017/02/13 16:20:02 by ele-cren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ void	ft_low(t_draw draw, t_mlx *ml, t_size size, t_color col)
 		while (draw.x++ <= draw.x2)
 		{
 			draw.tmp = (draw.y1 == draw.y2) ? draw.x : draw.y;
-			draw.y = (int)draw.y1 + (((int)draw.y2 - (int)draw.y1) * ((int)draw\
-			.x - (int)draw.x1)) / ((int)draw.x2 - (int)draw.x1);
+			draw.y = (int)draw.y1 + (((int)draw.y2 - (int)draw.y1) * ((int)\
+			draw.x - (int)draw.x1)) / ((int)draw.x2 - (int)draw.x1);
 			ml->data[size.mvx - size.xmin + (int)draw.x + ((size.mvy * size.\
 			width) - (size.ymin * size.width) + ((int)draw.y * size.width))] = \
 			ft_choose_color(size, draw, col);
@@ -71,8 +71,8 @@ void	ft_low(t_draw draw, t_mlx *ml, t_size size, t_color col)
 		while (draw.x-- >= draw.x2)
 		{
 			draw.tmp = (draw.y1 == draw.y2) ? draw.x : draw.y;
-			draw.y = (int)draw.y1 + (((int)draw.y2 - (int)draw.y1) * ((int)draw\
-			.x - (int)draw.x1)) / ((int)draw.x2 - (int)draw.x1);
+			draw.y = (int)draw.y1 + (((int)draw.y2 - (int)draw.y1) * ((int)\
+			draw.x - (int)draw.x1)) / ((int)draw.x2 - (int)draw.x1);
 			ml->data[size.mvx - size.xmin + (int)draw.x + ((size.mvy * size.\
 			width) - (size.ymin * size.width) + ((int)draw.y * size.width))] = \
 			ft_choose_color(size, draw, col);

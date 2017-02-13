@@ -6,7 +6,7 @@
 /*   By: ele-cren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 14:54:08 by ele-cren          #+#    #+#             */
-/*   Updated: 2017/02/10 15:38:55 by ele-cren         ###   ########.fr       */
+/*   Updated: 2017/02/13 16:36:01 by ele-cren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,15 @@ void	ft_mlx(t_llist *list, t_size size)
 	t_param	param;
 
 	ft_init_mlx(&ml);
-	ft_check_size(&size, list);
 	ml.mlx = mlx_init();
+	ft_check_size(&size, list);
 	ml.win = mlx_new_window(ml.mlx, size.width, size.height, "FDF");
 	ml.img = mlx_new_image(ml.mlx, size.width, size.height);
 	ml.data = (int *)mlx_get_data_addr(ml.img, &ml.bpp, &ml.sizeline, \
 		&ml.endian);
 	ft_getz(list, &size);
 	ft_put(list, size, &ml);
+	size.svscale = size.scale;
 	param.size = size;
 	param.mlx = ml;
 	param.list = list;

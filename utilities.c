@@ -6,7 +6,7 @@
 /*   By: ele-cren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 13:36:36 by ele-cren          #+#    #+#             */
-/*   Updated: 2017/02/10 11:20:07 by ele-cren         ###   ########.fr       */
+/*   Updated: 2017/02/13 16:42:08 by ele-cren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,9 @@ t_llist	*ft_create(t_coor coor, char *tab, t_llist *tmp, t_size size)
 		exit(1);
 	list->x = coor.x;
 	list->y = coor.y;
-	list->color = ((tp = ft_strchr(tab, ','))) ? ft_strdup(tp + 1) : \
-		ft_strdup("0xFFFFFF");
+	tp = ft_strchr(tab, ',');
+	list->color = (tp != NULL) ? ft_strdup(tp + 1) : \
+	ft_strdup("0xFFFFFF");
 	list->z = ft_atoi(tab);
 	list->xiso = (coor.x - coor.y) * size.scale;
 	list->yiso = (coor.x + coor.y) * (size.scale / 2);

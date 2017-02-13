@@ -6,7 +6,7 @@
 /*   By: ele-cren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 13:06:09 by ele-cren          #+#    #+#             */
-/*   Updated: 2017/02/10 15:16:07 by ele-cren         ###   ########.fr       */
+/*   Updated: 2017/02/13 16:55:19 by ele-cren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct		s_size
 	int				deep;
 	int				mvx;
 	int				mvy;
+	int				svscale;
 }					t_size;
 
 typedef struct		s_read
@@ -69,10 +70,6 @@ typedef struct		s_mlx
 	int				sizeline;
 	int				endian;
 	int				*data;
-	void			*img2;
-	int				bpp2;
-	int				sizeline2;
-	int				endian2;
 }					t_mlx;
 
 typedef struct		s_coor
@@ -126,9 +123,12 @@ void				ft_check_size(t_size *size, t_llist *list);
 void				ft_init_size(t_size *size);
 void				ft_put(t_llist *list, t_size size, t_mlx *ml);
 int					ft_key(int keycode, void *param);
-void				ft_drawx(t_mlx *ml, t_llist *list, t_size size, t_color col);
-void				ft_drawy(t_mlx *ml, t_llist *list, t_size size, t_color col);
-void				ft_drawseg(t_draw draw, t_mlx *ml, t_size size, t_color col);
+void				ft_drawx(t_mlx *ml, t_llist *list, \
+												t_size size, t_color col);
+void				ft_drawy(t_mlx *ml, t_llist *list, t_size size, \
+															t_color col);
+void				ft_drawseg(t_draw draw, t_mlx *ml, t_size size, \
+															t_color col);
 void				ft_low(t_draw draw, t_mlx *ml, t_size size, t_color col);
 void				ft_high(t_draw draw, t_mlx *ml, t_size size, t_color col);
 void				ft_mlx(t_llist *list, t_size size);
@@ -145,5 +145,9 @@ void				ft_move_lr(t_param *param, int keycode, int *x, int *y);
 void				ft_init_mlx(t_mlx *mlx);
 void				ft_move_tb(t_param *param, int keycode, int *x, int *y);
 void				ft_zoom(t_param *param, int keycode, int *x, int *y);
+t_llist				*ft_change_list(t_llist *list, t_size size);
+void				ft_unzoom(t_param *param, int keycode, int *x, int *y);
+void				ft_reset(t_param *param, int *x, int *y);
+void				ft_free_list(t_param *param);
 
 #endif

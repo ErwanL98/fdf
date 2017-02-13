@@ -6,7 +6,7 @@
 /*   By: ele-cren <ele-cren@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/07 15:34:14 by ele-cren          #+#    #+#             */
-/*   Updated: 2017/02/10 10:47:32 by ele-cren         ###   ########.fr       */
+/*   Updated: 2017/02/13 16:17:38 by ele-cren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		ft_gradient(t_color color, int min, int max, int current)
 	i = -1;
 	r1 = ft_hex_to_rgb(color.color1hex);
 	r2 = ft_hex_to_rgb(color.color2hex);
-	r3= r1;
+	r3 = r1;
 	while (++i < fabs((double)(current - min)))
 	{
 		r3.r -= (r1.r - r2.r) / fabs((double)(max - min));

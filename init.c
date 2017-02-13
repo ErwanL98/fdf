@@ -6,7 +6,7 @@
 /*   By: ele-cren <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/03 10:49:11 by ele-cren          #+#    #+#             */
-/*   Updated: 2017/02/10 13:17:34 by ele-cren         ###   ########.fr       */
+/*   Updated: 2017/02/13 16:00:10 by ele-cren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_init_size(t_size *size)
 	size->deep = 1;
 	size->mvx = 25;
 	size->mvy = 25;
+	size->svscale = 0;
 }
 
 void	ft_init_args(t_args *ag)
